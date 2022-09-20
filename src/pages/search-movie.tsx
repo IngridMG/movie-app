@@ -69,7 +69,6 @@ const SearchMovie: React.FC = () => {
     return (
         <div >
             <BootstrapDialog 
-                style={{width: "1000px"}}
                 onClose={handleClose}
                 aria-labelledby="customized-dialog-title"
                 open={open}
