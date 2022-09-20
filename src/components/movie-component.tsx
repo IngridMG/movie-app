@@ -50,9 +50,9 @@ const Movie: React.FC<MovieProps> = (props) => {
             //   image="/static/images/cards/contemplative-reptile.jpg"
               alt="green iguana"
             />
-        <CardContent>
+        <CardContent style={{ backgroundColor: "#4D4D4D" }}>
           
-              <Typography gutterBottom variant="body1" component="div">
+              <Typography color="white" gutterBottom variant="body1" component="div">
                     {nameMovie}
               </Typography>
         </CardContent>

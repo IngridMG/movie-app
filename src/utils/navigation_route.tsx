@@ -10,10 +10,10 @@ const Nav: React.FC = () => {
     return (
         <nav className="nav">
             <ul className="navLinks">
-                <Link style={navStyle} to={"/"}><li>Cartelera</li></Link>
-                <Link style={navStyle} to={"/popularity"}><li>Películas populares</li></Link>
-                <Link style={navStyle} to={"/popularity_boys"}><li>Películas para los niños</li></Link>
-                <Link style={navStyle} to={"/search_movie"}><li>Buscar película</li></Link>
+                <Link style={navStyle} to={"/"}>Cinema Movies</Link>
+                <Link style={navStyle} to={"/popularity"}>Popular Movies</Link>
+                <Link style={navStyle} to={"/popularity_boys"}>Movies for Kids</Link>
+                <Link style={navStyle} to={"/search_movie"}>Search Movie</Link>
             </ul>
             
         </nav>
