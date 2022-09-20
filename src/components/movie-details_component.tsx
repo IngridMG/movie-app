@@ -1,73 +1,61 @@
 import React, { useEffect } from "react";
+import axios from 'axios'
+import blossom from "./blossom.png";
 
 type MovieDetailsProps = {
      /**
      * Image of movie
      */
-    imageMovie: string;
-    /**
-     * Name of movie
-     */
-    nameMovie?: string;
-     /**
-     * Synopsis of movie
-     */
-    synopsisOfMovie?: string;
-      /**
-     * Famous phrase of movie
-     */
-    famousPhraseOfMovie?: string;
-     /**
-     * popularity of movie
-     */
-    popularityOfMovie: string;
-    /**
-     * Votes of movie
-     */
-    votesMovie: number;
+    idMovie: number;
 };
 
+
 const MovieDetails: React.FC<MovieDetailsProps> = (props) => {
-    const { imageMovie, nameMovie, votesMovie, popularityOfMovie,synopsisOfMovie, famousPhraseOfMovie } = props;
-    
-    const [skip, setSkip] = React.useState(0);
+    const { idMovie } = props;
+
+    const baseURL = 'https://api.themoviedb.org/3/movie/'
+    const apiKEY = "api_key=45bf6592c14a965b33549f4cc7e6c664"
+
+    const [title, setTitle] = React.useState("");
+    const [synopsis, setSynopsis] = React.useState("");
+    const [tagline, setTagline] = React.useState("");
+    const [popularity, setPopularity] = React.useState(0);
+    const [votes, setVotes] = React.useState(0);
 
     useEffect(() => {
-       
+        fetchItems()
     }, []);
 
-  
-    useEffect(() => {
-    }, [skip]);   
+    const fetchItems = async () => {
+        console.log(idMovie)
+        axios.get(`${baseURL}${idMovie}?${apiKEY}`).then((response) => {
+            console.log(response.data)
+            setTitle(response.data.title)
+            setSynopsis(response.data.overview)
+            setTagline(response.data.tagline)
+            setPopularity(response.data.popularity)
+            setVotes(response.data.vote_count)
+
+          });        
+    }
 
     return (
-        <div>
-            <div style={{   display: "flex", flexDirection: "row", justifyContent: "space-between", }}>
+        <div >
+            <div style={{ display: "flex", flexDirection: "row", justifyContent: "space-between", }}>
+            <div style={{ paddingLeft:"10px", paddingRight:"20px"  }}>
                 <img
-                    src={imageMovie}
+                        src={blossom}
+                        width="250px"
                     alt={"Image of Movie"}
-                />
-                <label>{nameMovie}</label>
-            </div>
-            <div style={{   display: "flex", flexDirection: "row", justifyContent: "space-between", }}>
-                <label>Sinopsis: </label>
-                <label>{synopsisOfMovie}</label>
-            </div>
-            <div style={{   display: "flex", flexDirection: "row", justifyContent: "space-between", }}>
-                <label>Frase célebre: </label>
-                <label>{famousPhraseOfMovie}</label>
-            </div>
-            <div style={{   display: "flex", flexDirection: "row", justifyContent: "space-between", }}>
-                <label>Frase célebre: </label>
-                <label>{famousPhraseOfMovie}</label>
-            </div>
-            <div style={{   display: "flex", flexDirection: "row", justifyContent: "space-between", }}>
-                <label>Popularidad: </label>
-                <label>{popularityOfMovie}</label>
-            </div>
-            <div style={{   display: "flex", flexDirection: "row", justifyContent: "space-between", }}>
-                <label>Votos: </label>
-                <label>{votesMovie}</label>
+                    />
+                </div>
+                <div style={{ display: "flex", flexDirection: "column"}}>
+                    <label>Titulo: {title}</label>
+                    <label>Sinopsis: {synopsis}</label>
+                    <label>Frase célebre: {tagline}</label>
+                    <label>Popularidad: {popularity}</label>
+                    <label>Votos: {votes}</label>
+                </div>
             </div>
         </div>
     );

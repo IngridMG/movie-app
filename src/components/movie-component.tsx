@@ -1,7 +1,15 @@
 import React, { useEffect } from "react";
-
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Typography from '@mui/material/Typography';
+import blossom from "./blossom.png";
 
 type MovieProps = {
+    /**
+     * Id of movie
+     */
+     idMovie: number;
      /**
      * Image of movie
      */
@@ -9,30 +17,46 @@ type MovieProps = {
     /**
      * Name of movie
      */
-     nameMovie?: string;
+    nameMovie?: string;
+     /**
+     * onClick in the movie
+     */
+    onClickMovie: (id: number) => void;
 };
 
 const Movie: React.FC<MovieProps> = (props) => {
-    const { imageMovie, nameMovie } = props;
+    const { idMovie, imageMovie, nameMovie, onClickMovie } = props;
     
     const [skip, setSkip] = React.useState(0);
 
     useEffect(() => {
        
     }, []);
-
   
     useEffect(() => {
-    }, [skip]);   
+    }, [skip]);  
+    
+    const onClick = (id: number) => {
+        onClickMovie(id)
+    };
 
     return (
-        <div style={{   display: "flex", flexDirection: "row", justifyContent: "center", }}>
-            <img
-                src={imageMovie}
-                alt={"Image of Movie"}
+        <Card onClick={() => onClick(idMovie)}>
+            <CardMedia
+              component="img"
+          width="80px"
+          style={{padding:"10px"}}
+                image={blossom}
+            //   image="/static/images/cards/contemplative-reptile.jpg"
+              alt="green iguana"
             />
-            <label>{nameMovie}</label>
-        </div>
-    );
+        <CardContent>
+          
+              <Typography gutterBottom variant="body1" component="div">
+                    {nameMovie}
+              </Typography>
+        </CardContent>
+        </Card>
+      );
 };
 export default Movie;

@@ -30,18 +30,33 @@
 
 .nav {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: flex-start;
   min-height: 10vh;
-  background: rgb(132, 95, 228);
+  background: rgb(40, 3, 133);
   color: rgb(243, 250, 239);
 }
 
 .navLinks {
   width: 50%;
   display: flex;
-  justify-content: space-around;
-  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.root {
+  display: "flex";
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.rootLeft {
+  width: 500 px;
+  height: 500 px;
+}
+
+.rootRight {
+  padding: "24px";
+  width: 700 px;
 }
 
 @keyframes App-logo-spin {

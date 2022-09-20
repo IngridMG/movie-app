@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
-import Nav from './navigation_route'
-import PostersMovie from './posters_movie'
-import PopularityMovie from './popularity-movies'
-import PopularityBoysMovie from './popularity-boys-movies'
+import Nav from './utils/navigation_route'
+import PostersMovie from './pages/poster-movies'
+import PopularityMovie from './pages/popularity-movies'
+import PopularityBoysMovie from './pages/popularity-boys-movies'
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom'
 import './App.css';
-import SearchMovie from "./search-movie";
+import SearchMovie from "./pages/search-movie";
 
 const MainApp: React.FC = () => {
     
