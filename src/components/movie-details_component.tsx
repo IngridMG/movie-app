@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import axios from 'axios'
-import blossom from "./blossom.png";
+import blossom from "./movie_image.png";
 
 type MovieDetailsProps = {
      /**
@@ -52,10 +52,10 @@ const MovieDetails: React.FC<MovieDetailsProps> = (props) => {
                     />
                 </div>
                 <div style={{ display: "flex", flexDirection: "column"}}>
-                    <label>Titulo: {title}</label>
-                    <label>Sinopsis: {synopsis}</label>
-                    <label>Frase célebre: {tagline}</label>
-                    <label>Popularidad: {popularity}</label>
+                    <label style={{ paddingBottom:"5px"}}>Titulo: {title}</label>
+                    <label style={{ paddingBottom:"5px"}}>Sinopsis: {synopsis}</label>
+                    <label style={{ paddingBottom:"5px"}}>Frase célebre: {tagline}</label>
+                    <label style={{ paddingBottom:"5px"}}>Popularidad: {popularity}</label>
                     <label>Votos: {votes}</label>
                 </div>
             </div>

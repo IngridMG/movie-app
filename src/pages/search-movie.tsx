@@ -75,7 +75,7 @@ const SearchMovie: React.FC = () => {
                 open={open}
             >
                 <BootstrapDialogTitle id="customized-dialog-title" onClose={handleClose}>
-                    Detalles de la pelicula
+                    Details of movie
                 </BootstrapDialogTitle>
                 <DialogContent dividers>
                     <MovieDetails idMovie={idSelect}/>

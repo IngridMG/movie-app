@@ -33,7 +33,8 @@ const ListMovie: React.FC<ListMovieProps> = (props) => {
     const [idSelect, setIdSelect] = React.useState(0);  
 
     useEffect(() => {
-        fetchItems();        
+        fetchItems();   
+       // fetchImages()
     }, [page]);
 
     const fetchItems = async () => {
@@ -44,6 +45,11 @@ const ListMovie: React.FC<ListMovieProps> = (props) => {
                 alert(`Ocurrio el error${reason}`)
         })
     }
+
+    // const fetchImages = async () => {
+    //     const data = await fetch("https://image.tmdb.org/t/p/w185_and_h278_bestv2?api_key=45bf6592c14a965b33549f4cc7e6c664")
+    //     console.log(data)
+    // }
 
     const nextPage = () => {
         setPage(page + 1)
@@ -71,7 +77,7 @@ const ListMovie: React.FC<ListMovieProps> = (props) => {
                 open={open}
             >
                 <BootstrapDialogTitle id="customized-dialog-title" onClose={handleClose}>
-                    Detalles de la pelicula
+                    Details of movie
                 </BootstrapDialogTitle>
                 <DialogContent dividers>
                     <MovieDetails idMovie={idSelect}/>
