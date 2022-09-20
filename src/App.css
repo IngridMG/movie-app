@@ -25,7 +25,23 @@
 }
 
 .App-link {
-  color: #61dafb;
+  color: #ffffff;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  min-height: 10vh;
+  background: rgb(132, 95, 228);
+  color: rgb(243, 250, 239);
+}
+
+.navLinks {
+  width: 50%;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
 }
 
 @keyframes App-logo-spin {
