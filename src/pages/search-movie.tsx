@@ -35,7 +35,10 @@ const SearchMovie: React.FC = () => {
         if (searchMovie != null && searchMovie != "")
             axios.get(`${baseURL}&query=${searchMovie}&page=${page}`).then((response) => {
                 setMovies(response.data.results)
-            });
+            })
+            .catch((reason: any) => {
+                alert(`Ocurrio el error${reason}`)
+        })        
     }
 
     const nextPage = () => {
@@ -82,10 +85,18 @@ const SearchMovie: React.FC = () => {
                 <TextField
                     value={searchMovie}
                     onChange={(e) => {onChangeMovieToSearch(e.target.value);}}
-                    label="Película"
+                    label="Movie name"
                 />
-                <Button onClick={search}>
-                    Buscar
+                <Button onClick={search} style={{
+                        textTransform: "none",
+                        marginLeft: "10px",
+                    height: "55px",
+                    width: "100px",
+                        color: "#F9F9F9",
+                        backgroundColor: "#4D4D4D",
+                        borderColor: "gray",
+                    }}>
+                    Search
                 </Button>
             </div>
 

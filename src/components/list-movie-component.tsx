@@ -39,7 +39,10 @@ const ListMovie: React.FC<ListMovieProps> = (props) => {
     const fetchItems = async () => {
         axios.get(`${url}&page=${page}`).then((response) => {
             setMovies(response.data.results)
-          });
+        })
+            .catch((reason: any) => {
+                alert(`Ocurrio el error${reason}`)
+        })
     }
 
     const nextPage = () => {

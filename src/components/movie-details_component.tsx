@@ -35,8 +35,10 @@ const MovieDetails: React.FC<MovieDetailsProps> = (props) => {
             setTagline(response.data.tagline)
             setPopularity(response.data.popularity)
             setVotes(response.data.vote_count)
-
-          });        
+        })
+        .catch((reason: any) => {
+            alert(`Ocurrio el error${reason}`)
+    })        
     }
 
     return (
